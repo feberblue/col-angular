@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div style="padding-top: 10px">
+  <div class="space">
+    <div class="card">
+      <h5 class="card-header">
+          Derivate / Forward
+      </h5>
+      <div class="card-body">
+        <div class="table-responsive-sm">
+          <table class="table table-light table-striped table-hover table-sm">
+            <thead class="thead-light">
+              <tr>
+                <th>#</th>
+                <th>Deal Type</th>
+                <th>SetFx Id</th>
+                <th>State</th>
+                <th>Action</th>
+                <th>Error Message</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of arrayQuery">
+                <td scope="row">{{item.MessageQueue_Id}}</td>
+                <td>{{item.DealType}}</td>
+                <td>{{item.SetFx_Id}}</td>
+                <td *ngIf="item.State=='P'">Pending</td>
+                <td *ngIf="item.State=='D'">Done</td>
+                <td *ngIf="item.State=='E'">Error</td>
+
+                <td *ngIf="item.Action=='I'">Insert</td>
+                <td *ngIf="item.Action=='U'">Update</td>
+                <td *ngIf="item.Action=='D'">Delete</td>
+                <td>{{item.ErrorMsg}}</td>
+                <td>
+                  <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-default" ng-click="sendQuery()" title="Process" *ngIf="item.State=='E'">
+                      <i class="fa fa-pencil"></i> Process
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

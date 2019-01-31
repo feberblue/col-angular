@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div style="padding-top: 10px">
+  <div class="space">
+    <div class="card border-primary">
+      <h5 class="card-header  bg-primary text-white">
+        Client / Socket
+      </h5>
+      <div class="card-body">
+        <div class="col-sm-12 col-md-12">
+          <div class="form-group">
+              <label>Login: </label>
+              <input type="text" class="form-control" [(ngModel)]="txtLogin">
+          </div>
+
+          <div class="form-group">
+              <label>Password: </label>
+              <input type="password" class="form-control" [(ngModel)]="txtPassword">
+          </div>
+          
+        </div>
+        <div class="col-sm-12 col-md-12">
+          <!--<div class="table-responsive-sm" style="font-size: 13px !important">
+            <button class="btn btn-primary" type="button" (click)="sendLogin()">Test Login</button>
+          </div>-->
+          <button class="btn btn-primary" type="button" (click)="sendMessageToServer()">Message</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="visibilidadMsg==true">
+  <div class="alert alert-primary">
+    {{msgGeneral.ErrorMsg}}
+  </div>
+</div>
